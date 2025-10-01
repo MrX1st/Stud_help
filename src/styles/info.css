@@ -1,0 +1,124 @@
+/* info.css - Specific styles for Info page, using global CSS variables */
+
+.info-section {
+  padding: 4rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-section h1 {
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.guide-section {
+  margin-bottom: 3rem;
+}
+
+.guide-section h2 {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.step-list {
+  background: var(--color-bg-secondary);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--color-accent);
+  list-style-position: inside;
+  line-height: 1.8;
+}
+
+.step-list li {
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.glossary-section {
+  margin-bottom: 3rem;
+}
+
+.glossary-section h2 {
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.glossary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.glossary-item {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.glossary-item:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--box-shadow);
+}
+
+.glossary-item summary {
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.glossary-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.glossary-item summary::before {
+  content: '+';
+  font-weight: bold;
+  color: var(--color-accent);
+  margin-right: 0.5rem;
+}
+
+.glossary-item[open] summary::before {
+  content: '−';
+}
+
+.glossary-item p {
+  padding: 0 1rem 1rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Dark mode adjustments (inherits from global .dark) */
+.dark .glossary-item {
+  background: var(--color-bg-secondary);
+}
+
+.dark .step-list {
+  background: var(--color-bg-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .info-section {
+    padding: 2rem 1rem;
+  }
+
+  .step-list {
+    padding: 1rem;
+  }
+
+  .glossary-item summary,
+  .glossary-item p {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
