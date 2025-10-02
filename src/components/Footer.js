@@ -12,15 +12,15 @@ function Footer(){
             </div>
             <div className="footer-section">
               <h3>Services</h3>
-              <p><a href="#">Exam Preparation</a></p>
-              <p><a href="#">Assignment Help</a></p>
-              <p><a href="#">Academic Planning</a></p>
-              <p><a href="#">Study Strategies</a></p>
+              <p>Exam Preparation</p>
+              <p>Assignment Help</p>
+              <p>Academic Planning</p>
+              <p>Study Strategies</p>
             </div>
             <div className="footer-section">
               <h3>Contact</h3>
-              <p>Email: support@Study Support.com</p>
-              <p>Phone: +1 (555) 123-4567</p>
+              <p>Email: support@Study_Support.com</p>
+              <p>Phone: +00000000000</p>
               <p>Available: Mon-Fri 9AM-6PM</p>
             </div>
           </div>
