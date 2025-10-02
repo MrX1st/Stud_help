@@ -5,40 +5,26 @@ import { Link, useLocation } from "react-router-dom";
 
 
 function Navbar({ theme, setTheme }){
-  const getStoredLang = () => {
-    const stored = localStorage.getItem("language");
-    return stored === "RU" ? "RU" : "EN";
-  };
 
-  const [language, setLanguage] = useState(getStoredLang());
-  const [langOpen, setLangOpen] = useState(false);
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const langRef = useRef(null);
   const menuRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
       if (menuRef.current && !menuRef.current.contains(e.target)) setMobileMenuOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("language", language);
-  }, [language]);
+
 
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
-  const changeLanguage = (code) => { setLanguage(code); setLangOpen(false); };
   const toggleMobileMenu = () => setMobileMenuOpen(prev => !prev);
 
-  const languages = [
-    { code: "EN", label: "English", countryCode: "GB" },
-    { code: "RU", label: "Russian", countryCode: "RU" },
-  ];
 
   const navLinks = [
     { path: "/", label: "Home" },
@@ -71,30 +57,6 @@ function Navbar({ theme, setTheme }){
         <div className="navbar-controls">
          
 
-          {/* Language Dropdown */}
-          <div className="language-dropdown" onClick={() => setLangOpen(!langOpen)} ref={langRef}>
-            <ReactCountryFlag
-              countryCode={languages.find(l => l.code === language)?.countryCode}
-              svg
-              style={{ width: "20px", height: "20px" }}
-            />
-            <p>{languages.find(l => l.code === language)?.label}</p>
-
-            {langOpen && (
-              <ul className="language-list">
-                {languages.map(lang => (
-                  <li
-                    key={lang.code}
-                    className={lang.code === language ? "active" : ""}
-                    onClick={(e) => { e.stopPropagation(); changeLanguage(lang.code); }}
-                  >
-                    <ReactCountryFlag countryCode={lang.countryCode} svg style={{ width: "20px", height: "20px" }} />
-                    <span>{lang.label}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
 
          {/* Theme Toggle */}
           <button className="theme-btn" onClick={toggleTheme}>

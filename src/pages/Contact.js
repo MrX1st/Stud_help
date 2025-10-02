@@ -11,11 +11,7 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Placeholder for form submission
-    alert("Question sent to UrFU Support!");
-  };
+
 
   return (
     <div className="contact-section">
